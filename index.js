@@ -23,7 +23,6 @@ window.onload = function () {
          display = document.querySelector('#timeleft');  
     startTimer(leftsec, display);
       document.getElementById("gameStart").classList.add("displaynone")
-
       });
    
     };

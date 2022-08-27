@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script src="./index.js"></script>
@@ -37,12 +38,25 @@
       justify-content: center;
       align-items: center;
       z-index: 10;
-      top: 10vh;
+      top: 5vh;
       left: 5vw;
       /* width: 20%; */
       /* height: 10%; */
-      background: rgb(247, 186, 186);
+      background: #90b77d;
       border-radius: 25px;
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    }
+    .snippyby {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      top: 5vh;
+      right: 5vw;
+      background: #90b77d;
+      border-radius: 25px;
+      padding: 5px 10px;
       box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
     }
     .gameStart {
@@ -59,9 +73,11 @@
       right: 0;
       font-size: 1.25rem;
       font-weight: 700;
-      background: rgb(128, 217, 109);
-      border-radius: 25px;
-      padding: 5px;
+      background: #f1a661;
+      /* color: aliceblue; */
+      border-radius: 10px;
+      border: none;
+      padding: 5px 10px;
       box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
       transition: 0.3s;
     }
@@ -81,12 +97,32 @@
     <!-- <div class="buttons">
       <button class="say-hi-button">SAY HI!</button>
     </div> -->
+    <div id="player">
+      <!-- <audio autoplay hidden>
+        <source src="./hcimusic.mp3" type="audio/mpeg" />
+        If you're reading this, audio isn't supported.
+      </audio> -->
+      <audio controls autoplay hidden loop>
+        <source src="./hcimusic.mp3" type="audio/ogg" />
+        <embed
+          src="./hcimusic.mp3"
+          autostart="true"
+          loop="true"
+          hidden="true"
+        />
+      </audio>
+    </div>
     <div class="Timeleft">
       <div class="container">
         <div class="text">Time Left :</div>
         <div id="timeleft" class="text">300</div>
         <div class="text">s</div>
       </div>
+    </div>
+    <div class="snippyby">
+      <div class="text">還剩:</div>
+      <div id="countleft" class="text">10</div>
+      <div class="text">次</div>
     </div>
     <button id="gameStart" class="gameStart">Game Start</button>
     <a-scene embedded arjs>
